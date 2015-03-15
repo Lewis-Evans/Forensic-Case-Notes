@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="331.0" prefWidth="720.0" stylesheets="@../darktheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evidence.AddEvidenceController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.0" minWidth="10.0" prefWidth="33.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="468.0" minWidth="10.0" prefWidth="153.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="468.0" minWidth="10.0" prefWidth="135.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="468.0" minWidth="10.0" prefWidth="368.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="468.0" minWidth="10.0" prefWidth="16.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="334.0" minHeight="10.0" prefHeight="239.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="191.0" minHeight="10.0" prefHeight="92.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <VBox prefHeight="334.0" prefWidth="190.0" spacing="18.0" GridPane.columnIndex="1">
+         <children>
+            <Label text="Evidence ID" />
+            <Label text="Evidence Type" />
+            <Label text="Evidence Manufacturer" />
+            <Label text="Manufactured Date" />
+            <Label text="Model" />
+            <Label text="Evidence Image" />
+         </children>
+         <GridPane.margin>
+            <Insets top="15.0" />
+         </GridPane.margin>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="8.0" GridPane.columnIndex="2">
+         <children>
+            <TextField fx:id="evidenceIDTextField" />
+            <ChoiceBox fx:id="evidenceTypeChoiceBox" prefWidth="150.0" />
+            <TextField fx:id="evidenceManufacturerTextField" />
+            <DatePicker fx:id="manufactureDateDatePicker" editable="false" />
+            <TextField fx:id="modelTextField" />
+            <Button fx:id="browseForImageButton" mnemonicParsing="false" onAction="#browseForImage" text="Browse.." />
+         </children>
+         <GridPane.margin>
+            <Insets top="15.0" />
+         </GridPane.margin>
+      </VBox>
+      <Button fx:id="addEvidenceButton" mnemonicParsing="false" onAction="#handleAddEvidenceButton" text="Add Evidence" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <ImageView fx:id="evidenceImageViewer" fitHeight="245.0" fitWidth="344.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="BOTTOM">
+         <GridPane.margin>
+            <Insets bottom="50.0" left="10.0" />
+         </GridPane.margin>
+         <image>
+            <Image url="@../placeholder.png" />
+         </image>
+      </ImageView>
+      <ToggleButton fx:id="toggleButton" mnemonicParsing="false" text="Multiple Add" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+   </children>
+</GridPane>

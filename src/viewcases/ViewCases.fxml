@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.media.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane prefHeight="546.0" prefWidth="640.0" stylesheets="@../darktheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewcases.ViewCasesController">
+  <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="101.0" minWidth="10.0" prefWidth="83.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="320.0" minWidth="10.0" prefWidth="250.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="249.0" minWidth="0.0" prefWidth="223.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="10.0" prefWidth="71.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints maxHeight="132.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="153.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="153.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="256.0" minHeight="10.0" prefHeight="240.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="162.0" minHeight="10.0" prefHeight="162.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Current Cases" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+         <font>
+            <Font name="Arial" size="25.0" />
+         </font>
+      </Text>
+      <TableView fx:id="availableCasesTableView" prefHeight="200.0" prefWidth="200.0" stylesheets="@../darktheme.css" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" GridPane.rowSpan="2">
+        <columns>
+          <TableColumn fx:id="column1CaseID" prefWidth="75.0" text="Case ID" />
+          <TableColumn fx:id="column2CaseType" prefWidth="75.0" text="Case Type" />
+            <TableColumn fx:id="column3DateTimeAdded" prefWidth="126.0" text="Date Time Added" />
+            <TableColumn fx:id="column4CaseStatus" prefWidth="75.0" text="Status" />
+        </columns>
+      </TableView>
+      <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <GridPane.margin>
+            <Insets bottom="5.0" top="5.0" />
+         </GridPane.margin>
+         <children>
+            <Button fx:id="refreshButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#handleRefreshButton" prefHeight="14.0" prefWidth="45.0">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../evidence/evidenceIcons/arrow_refresh.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <TextField fx:id="caseSelectionTextField" prefHeight="25.0" prefWidth="98.0" promptText="Enter Case ID" />
+            <Button fx:id="openCaseButton" mnemonicParsing="false" onAction="#handleOpenCaseButton" text="Open Case" />
+            <Button fx:id="createCaseButton" mnemonicParsing="false" onAction="#handleCreateCaseButton" text="Create Case" />
+            <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#handleDeleteButton" text="Delete Case">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</GridPane>

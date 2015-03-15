@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="666.0" stylesheets="@../darktheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evidence.ViewEvidenceListController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="217.0" minWidth="10.0" prefWidth="19.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="593.0" minWidth="10.0" prefWidth="593.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.0" minWidth="10.0" prefWidth="23.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints maxHeight="113.0" minHeight="0.0" prefHeight="42.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="113.0" minHeight="0.0" prefHeight="42.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="113.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="297.0" minHeight="10.0" prefHeight="103.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="280.0" minHeight="10.0" prefHeight="263.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <TableView fx:id="evidenceTableView" prefHeight="200.0" prefWidth="200.0" stylesheets="@../darktheme.css" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.rowSpan="2">
+        <columns>
+          <TableColumn fx:id="columnEvidenceID" prefWidth="113.0" text="Evidence ID" />
+          <TableColumn fx:id="columnEvidenceType" prefWidth="110.0" text="Evidence Type" />
+            <TableColumn fx:id="dateTimeAddedColumn" minWidth="3.0" prefWidth="176.0" text="Date/Time Added" />
+            <TableColumn fx:id="evidenceImageColumn" prefWidth="75.0" text="Image" />
+        </columns>
+      </TableView>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Case Evidence" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <children>
+            <Button fx:id="addEvidenceButton" mnemonicParsing="false" onAction="#handleAddEvidenceButton" prefHeight="25.0" prefWidth="216.0" stylesheets="@../darktheme.css" text="Add Evidence" />
+            <Button fx:id="refreshButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#handleRefreshButton" prefHeight="14.0" prefWidth="45.0">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@evidenceIcons/arrow_refresh.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="426.0" spacing="5.0">
+               <children>
+                  <TextField fx:id="evidenceIDTextField" prefHeight="25.0" prefWidth="110.0" promptText="Enter ID # Here" stylesheets="@../darktheme.css" />
+                  <Button fx:id="viewEditEvidenceButton" mnemonicParsing="false" onAction="#handleViewEditEvidenceButton" text="View / Edit Evidence" />
+                  <Button fx:id="deleteEvidenceButton" mnemonicParsing="false" onAction="#handleDeleteEvidenceButton" prefHeight="25.0" prefWidth="66.0" text="Delete" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets left="100.0" />
+               </HBox.margin>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <GridPane.margin>
+            <Insets bottom="5.0" top="5.0" />
+         </GridPane.margin>
+      </HBox>
+   </children>
+</GridPane>

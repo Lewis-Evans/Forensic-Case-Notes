@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="540.0" stylesheets="@../darktheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="md5.MD5FileController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="117.0" minWidth="10.0" prefWidth="38.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="178.0" minWidth="10.0" prefWidth="73.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="404.0" minWidth="10.0" prefWidth="404.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="97.0" minWidth="10.0" prefWidth="28.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints maxHeight="70.0" minHeight="0.0" prefHeight="21.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="140.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="181.0" minHeight="10.0" prefHeight="132.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <TextField fx:id="md5ResultTextField" editable="false" prefHeight="20.0" prefWidth="471.0" promptText="Once a File has been Selected the MD5 Checksum will appear here." GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <padding>
+            <Insets bottom="30.0" />
+         </padding>
+         <GridPane.margin>
+            <Insets top="15.0" />
+         </GridPane.margin>
+      </TextField>
+      <TextField fx:id="filePathTextField" editable="false" prefHeight="25.0" prefWidth="237.0" promptText="Click Browse.. to browse for a file" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <Button mnemonicParsing="false" onAction="#locateFile" text="Browse.." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Label fx:id="md5ClipboardLabel" prefHeight="33.0" prefWidth="332.0" stylesheets="@../darktheme.css" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+         <GridPane.margin>
+            <Insets bottom="15.0" left="20.0" />
+         </GridPane.margin>
+      </Label>
+   </children>
+</GridPane>
