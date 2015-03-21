@@ -114,19 +114,10 @@ public class CreateCaseController implements Initializable {
 
         newCase.setDateTimeAdded(currentDateTime);
 
-        CaseNote initialNote = new CaseNote();
-        initialNote.setNotes("===============================\n"
-                + "CASE SUMMARY:"
-                + "\nCase ID: " + caseNumber
-                + "\nCase Type: " + currentDateTime
-                + "\nCase Opened: " + currentDateTime
-                + "===============================\n");
-
-        newCase.getCaseNotes().add(initialNote);
-
+    
         // test output of date/time
         System.out.println(currentDateTime.format(format));
-        theSession.saveOrUpdate(initialNote);
+ 
         theSession.saveOrUpdate(newCase);
         // theSession.saveOrUpdate(initialNotes);
         theSession.getTransaction().commit();

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package md5;
+package hash;
 
 import createcase.CaseFile;
 import createcase.CreateCaseController;
@@ -41,7 +41,7 @@ import org.hibernate.SessionFactory;
  *
  * @author Lewis
  */
-public class MD5FilesController implements Initializable {
+public class HashFilesController implements Initializable {
 
     @FXML
     private Button refreshButton;
@@ -170,7 +170,7 @@ public class MD5FilesController implements Initializable {
             md5fis.close();
             sha1fis.close();
         } catch (IOException ex) {
-            Logger.getLogger(MD5FilesController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HashFilesController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         ChecksumDetails aChecksum = new ChecksumDetails();

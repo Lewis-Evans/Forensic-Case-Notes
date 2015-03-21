@@ -56,7 +56,7 @@ public class AddTaskController implements Initializable {
         newTask.setTaskDescription(taskDescTextArea.getText());
         newTask.setStartDate(startDatePicker.getValue());
         newTask.setEndDate(endDatePicker.getValue());
-
+        newTask.setTaskStatus("Active");
         if (taskPrioChoiceBox.getValue().equals("1 - High")) {
             newTask.setPriority(1);
         } else if (taskPrioChoiceBox.getValue().equals("2 - Medium")) {

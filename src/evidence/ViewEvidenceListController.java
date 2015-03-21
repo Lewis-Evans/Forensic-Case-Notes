@@ -24,12 +24,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import hash.ChecksumDetails;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -84,10 +86,27 @@ public class ViewEvidenceListController implements Initializable {
 
         columnEvidenceID.setCellValueFactory(new PropertyValueFactory("evidenceID"));
         columnEvidenceType.setCellValueFactory(new PropertyValueFactory("evidenceType"));
-
+        columnEvidenceManufacturer.setCellValueFactory(new PropertyValueFactory("evidenceManufacturer"));
+        columnEvidenceModel.setCellValueFactory(new PropertyValueFactory("evidenceModel"));
         DateTimeFormatter format = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT, FormatStyle.SHORT);
 
         dateTimeAddedColumn.setCellValueFactory(new PropertyValueFactory("evidenceDateTimeAdded"));
+        dateTimeAddedColumn.setCellFactory(column -> {
+            return new TableCell<Evidence, LocalDateTime>() {
+                @Override
+                protected void updateItem(LocalDateTime item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    if (item == null || empty) {
+                        setText(null);
+                        setStyle("");
+                    } else {
+                        setText(format.format(item));
+                    }
+                }
+            };
+        });
+        
 
         evidenceTableView.getItems().addAll(evidenceForCase);
         session.getTransaction().commit();

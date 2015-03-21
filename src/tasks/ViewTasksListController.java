@@ -12,10 +12,8 @@ import hibernate.HibernateUtilities;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -34,7 +32,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import md5.ChecksumDetails;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -75,7 +72,8 @@ public class ViewTasksListController implements Initializable {
 
     @FXML
     private TableColumn<Task, LocalDate> columnTaskStartDate;
-
+    @FXML
+    private TableColumn<Task, String> columnDescription;
     @FXML
     private TableColumn<Task, String> columnTaskStatus;
 
@@ -123,7 +121,9 @@ public class ViewTasksListController implements Initializable {
             };
         });
         columnTaskStatus.setCellValueFactory(new PropertyValueFactory("taskStatus"));
-        columnPriority.setCellValueFactory(new PropertyValueFactory("taskPrioity"));
+        //columnPriority.setCellValueFactory(new PropertyValueFactory("taskPriority"));
+        columnPriority.setCellValueFactory(new PropertyValueFactory<Task, Integer>("taskPriority"));
+        columnDescription.setCellValueFactory(new PropertyValueFactory("taskDescription"));
 
         SessionFactory sFactory = HibernateUtilities.getSessionFactory();
         Session session = sFactory.openSession();
@@ -161,8 +161,48 @@ public class ViewTasksListController implements Initializable {
         columnTaskID.setCellValueFactory(new PropertyValueFactory("taskID"));
         columnTaskName.setCellValueFactory(new PropertyValueFactory("taskName"));
         columnTaskStartDate.setCellValueFactory(new PropertyValueFactory("startDate"));
+        DateTimeFormatter format = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
+        columnTaskStartDate.setCellFactory(column -> {
+            return new TableCell<Task, LocalDate>() {
+                @Override
+                protected void updateItem(LocalDate item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    if (item == null || empty) {
+                        setText(null);
+                        setStyle("");
+                    } else {
+                        // Format date.
+                        setText(format.format(item));
+
+                        // Style all dates in March with a different color.
+                    }
+                }
+            };
+        });
         columnTaskDueDate.setCellValueFactory(new PropertyValueFactory("endDate"));
+        columnTaskDueDate.setCellFactory(column -> {
+            return new TableCell<Task, LocalDate>() {
+                @Override
+                protected void updateItem(LocalDate item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    if (item == null || empty) {
+                        setText(null);
+                        setStyle("");
+                    } else {
+                        // Format date.
+                        setText(format.format(item));
+
+                        // Style all dates in March with a different color.
+                    }
+                }
+            };
+        });
         columnTaskStatus.setCellValueFactory(new PropertyValueFactory("taskStatus"));
+        //columnPriority.setCellValueFactory(new PropertyValueFactory("taskPriority"));
+        columnPriority.setCellValueFactory(new PropertyValueFactory<Task, Integer>("taskPriority"));
+        columnDescription.setCellValueFactory(new PropertyValueFactory("taskDescription"));
 
         SessionFactory sFactory = HibernateUtilities.getSessionFactory();
         Session session = sFactory.openSession();
@@ -180,7 +220,18 @@ public class ViewTasksListController implements Initializable {
 
     @FXML
     void handleMarkCompleteButton(ActionEvent event) {
+        SessionFactory sFactory = HibernateUtilities.getSessionFactory();
+        Session session = sFactory.openSession();
+        session.beginTransaction();
 
+        Task currentTask = (Task) session.get(Task.class, Long.parseLong(taskIDTextField.getText()));
+
+        currentTask.setTaskStatus("Completed");
+
+        session.getTransaction().commit();
+        session.close();
+
+        handleRefreshButton(event);
     }
 
     @FXML

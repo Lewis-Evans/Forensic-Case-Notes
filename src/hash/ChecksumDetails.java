@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package md5;
+package hash;
 
 import createcase.CaseFile;
 import java.time.LocalDateTime;

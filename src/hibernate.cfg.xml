@@ -30,7 +30,7 @@
         <mapping class="createcase.CaseNote"/>
         <mapping class="evidence.Evidence"/>
         <mapping class="evidence.EvidenceNote"/>
-        <mapping class="md5.ChecksumDetails"/>
+        <mapping class="hash.ChecksumDetails"/>
         <mapping class="tasks.Task"/>
  
     </session-factory>

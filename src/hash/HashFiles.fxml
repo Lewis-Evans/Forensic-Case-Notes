@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="934.0" stylesheets="@../darktheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="md5.MD5FilesController">
+<GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="545.0" prefWidth="934.0" stylesheets="@../darktheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hash.HashFilesController">
   <columnConstraints>
       <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="925.0" />
   </columnConstraints>

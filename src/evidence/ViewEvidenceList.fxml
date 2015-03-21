@@ -23,8 +23,8 @@
       <TableView fx:id="evidenceTableView" prefHeight="200.0" prefWidth="200.0" stylesheets="@../darktheme.css" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.rowSpan="2" GridPane.vgrow="ALWAYS">
         <columns>
           <TableColumn fx:id="columnEvidenceID" prefWidth="87.0" text="Evidence ID" />
-            <TableColumn fx:id="dateTimeAddedColumn" minWidth="3.0" prefWidth="113.0" text="Date/Time Added" />
-          <TableColumn fx:id="columnEvidenceType" prefWidth="115.0" text="Type" />
+            <TableColumn fx:id="dateTimeAddedColumn" minWidth="3.0" prefWidth="133.0" text="Date/Time Added" />
+          <TableColumn fx:id="columnEvidenceType" prefWidth="95.0" text="Type" />
             <TableColumn fx:id="columnEvidenceManufacturer" prefWidth="159.0" text="Manufacturer" />
             <TableColumn fx:id="columnEvidenceModel" prefWidth="150.0" text="Model" />
         </columns>
@@ -49,14 +49,14 @@
             <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="31.0" prefWidth="398.0" spacing="5.0" style="-fx-border-color: black;">
                <children>
                   <TextField fx:id="evidenceIDTextField" prefHeight="25.0" prefWidth="110.0" promptText="Enter ID # Here" stylesheets="@../darktheme.css" />
-                  <Button fx:id="viewEditEvidenceButton" mnemonicParsing="false" onAction="#handleViewEditEvidenceButton" prefHeight="25.0" prefWidth="127.0" text="View / Edit Evidence" />
+                  <Button fx:id="viewEditEvidenceButton" mnemonicParsing="false" onAction="#handleViewEditEvidenceButton" prefHeight="25.0" prefWidth="138.0" text="View / Edit Evidence" />
                   <Button fx:id="deleteEvidenceButton" mnemonicParsing="false" onAction="#handleDeleteEvidenceButton" prefHeight="25.0" prefWidth="66.0" text="Delete" />
                </children>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <HBox.margin>
-                  <Insets left="100.0" />
+                  <Insets bottom="5.0" left="70.0" />
                </HBox.margin>
                <padding>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />

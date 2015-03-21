@@ -20,7 +20,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import md5.ChecksumDetails;
+import hash.ChecksumDetails;
 import tasks.Task;
 
 /**

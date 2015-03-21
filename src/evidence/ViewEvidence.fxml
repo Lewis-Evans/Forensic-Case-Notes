@@ -9,9 +9,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="444.0" prefWidth="720.0" stylesheets="@../darktheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evidence.ViewEvidenceController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="978.0" stylesheets="@../darktheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="evidence.ViewEvidenceController">
    <children>
-      <VBox prefHeight="334.0" prefWidth="190.0" spacing="18.0" GridPane.columnIndex="1">
+      <VBox prefHeight="334.0" prefWidth="190.0" spacing="18.0">
          <children>
             <Label text="Evidence ID" />
             <Label text="Evidence Type" />
@@ -23,7 +23,7 @@
             <Insets top="15.0" />
          </GridPane.margin>
       </VBox>
-      <VBox prefHeight="200.0" prefWidth="100.0" spacing="8.0" GridPane.columnIndex="2">
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="8.0" GridPane.columnIndex="1">
          <children>
             <TextField fx:id="evidenceIDTextField" editable="false" />
             <TextField fx:id="evidenceTypeTextField" editable="false" />
@@ -35,7 +35,7 @@
             <Insets top="15.0" />
          </GridPane.margin>
       </VBox>
-      <ImageView fx:id="evidenceImageViewer" fitHeight="176.0" fitWidth="301.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <ImageView fx:id="evidenceImageViewer" fitHeight="350.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
          <image>
             <Image url="@../placeholder.png" />
          </image>
@@ -43,7 +43,7 @@
             <Insets bottom="15.0" left="10.0" />
          </GridPane.margin>
       </ImageView>
-      <VBox prefHeight="385.0" prefWidth="288.0" GridPane.columnIndex="3" GridPane.rowSpan="2">
+      <VBox prefHeight="385.0" prefWidth="288.0" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
          <GridPane.margin>
             <Insets bottom="30.0" left="10.0" top="18.0" />
          </GridPane.margin>
@@ -55,7 +55,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@evidenceIcons/arrow_refresh.png" />
+                              <Image url="@../arrow_refresh.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -63,24 +63,24 @@
                   <Button fx:id="printNotesButton" mnemonicParsing="false" onAction="#handlePrintNotesButton" prefHeight="26.0" prefWidth="97.0" text="Print Notes" />
                </children>
             </HBox>
-            <TextArea fx:id="evidenceNoteTextArea" prefHeight="371.0" prefWidth="288.0" />
+            <TextArea fx:id="evidenceNoteTextArea" editable="false" prefHeight="294.0" prefWidth="418.0">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin></TextArea>
          </children>
       </VBox>
-      <Label text="Evidence Image" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
    </children>
    <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.0" minWidth="10.0" prefWidth="50.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="468.0" minWidth="10.0" prefWidth="141.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="468.0" minWidth="10.0" prefWidth="110.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="468.0" minWidth="10.0" prefWidth="287.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="468.0" minWidth="10.0" prefWidth="16.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="468.0" minWidth="10.0" prefWidth="196.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="468.0" minWidth="0.0" prefWidth="222.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="566.0" minWidth="10.0" prefWidth="526.0" />
    </columnConstraints>
    <rowConstraints>
       <RowConstraints maxHeight="334.0" minHeight="10.0" prefHeight="232.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="281.0" minHeight="10.0" prefHeight="212.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="281.0" minHeight="10.0" prefHeight="212.0" vgrow="SOMETIMES" />
    </rowConstraints>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
 </GridPane>

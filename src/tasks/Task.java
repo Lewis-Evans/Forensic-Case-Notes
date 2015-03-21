@@ -29,8 +29,7 @@ public class Task {
     private String taskDescription;
     private LocalDate startDate;
     private LocalDate endDate;
-    private int priority;
-    private int daysRemaining;
+    private int taskPriority;
     private String taskStatus;
 
     public String getTaskStatus() {
@@ -51,14 +50,6 @@ public class Task {
 
     public void setCaseFile(CaseFile caseFile) {
         this.caseFile = caseFile;
-    }
-
-    public int getDaysRemaining() {
-        return daysRemaining;
-    }
-
-    public void setDaysRemaining(int daysRemaining) {
-        this.daysRemaining = daysRemaining;
     }
 
     public long getTaskID() {
@@ -102,11 +93,11 @@ public class Task {
     }
 
     public int getPriority() {
-        return priority;
+        return taskPriority;
     }
 
     public void setPriority(int priority) {
-        this.priority = priority;
+        this.taskPriority = priority;
     }
     
     

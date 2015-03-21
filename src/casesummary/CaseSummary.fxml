@@ -45,13 +45,12 @@
             </Menu>
           <Menu mnemonicParsing="false" text="Utilities">
             <items>
-              <MenuItem fx:id="MD5MenuItem" mnemonicParsing="false" onAction="#handleMD5FileButton" text="Checksum Generator" />
+              <MenuItem fx:id="MD5MenuItem" mnemonicParsing="false" onAction="#handleHashGenButton" text="Checksum Generator" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#handleAboutButton" text="About" />
-                  <MenuItem fx:id="testButton" mnemonicParsing="false" onAction="#handleTestButton" text="Test" />
             </items>
           </Menu>
         </menus>
