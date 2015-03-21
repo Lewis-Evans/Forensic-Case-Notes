@@ -176,11 +176,11 @@ public class CaseSummaryController {
     }
 
     @FXML
-    void handleMD5FileButton(ActionEvent event) {
+    void handleHashGenButton(ActionEvent event) {
         try {
             System.out.println("Clicked on MD5 File Button");
             Parent root;
-            root = FXMLLoader.load(getClass().getResource("/md5/MD5Files.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/hash/HashFiles.fxml"));
             Stage stage = new Stage();
             stage.setTitle("MD5 a File");
             stage.getIcons().add(new Image("logoletters.png"));
