@@ -64,6 +64,8 @@ public class CaseSummaryController {
     private MenuBar menuBar;
     @FXML
     private MenuItem saveButton;
+    @FXML 
+    private MenuItem caseTasksMenuItem;
     @FXML
     private MenuItem MD5MenuItem;
     @FXML
@@ -90,6 +92,7 @@ public class CaseSummaryController {
     @FXML
     void handleCloseButton(ActionEvent event) {
         System.out.println("Cancel button clicked");
+        System.exit(1);
 
     }
 
@@ -177,7 +180,7 @@ public class CaseSummaryController {
         try {
             System.out.println("Clicked on MD5 File Button");
             Parent root;
-            root = FXMLLoader.load(getClass().getResource("/md5/MD5File.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/md5/MD5Files.fxml"));
             Stage stage = new Stage();
             stage.setTitle("MD5 a File");
             stage.getIcons().add(new Image("logoletters.png"));
@@ -188,6 +191,21 @@ public class CaseSummaryController {
         }
     }
 
+    @FXML
+    void handleViewTasksButton(ActionEvent event){
+        try {
+            System.out.println("Clicked on View Tasks Button");
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource("/tasks/ViewTasksList.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("View Tasks");
+            stage.getIcons().add(new Image("logoletters.png"));
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(CaseSummaryController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     /**
      * Initializes the controller class.
      */
@@ -248,6 +266,8 @@ public class CaseSummaryController {
             }
         }
     }
+    
+  
 
     @FXML
     private void handleViewEvidenceButton(ActionEvent event) {

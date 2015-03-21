@@ -20,7 +20,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import md5.MD5Details;
+import md5.ChecksumDetails;
 import tasks.Task;
 
 /**
@@ -43,7 +43,7 @@ public class CaseFile implements Serializable {
     private Collection<CaseNote> caseNotes = new ArrayList<>();
 
     @OneToMany(mappedBy = "caseFile", cascade = CascadeType.ALL)
-    private Collection<MD5Details> md5Details = new ArrayList<>();
+    private Collection<ChecksumDetails> md5Details = new ArrayList<>();
 
     @OneToMany(mappedBy = "caseFile", cascade = CascadeType.ALL)
     private List<Evidence> caseEvidence = new ArrayList<>();
@@ -85,11 +85,11 @@ public class CaseFile implements Serializable {
         this.dateTimeAdded = dateTimeAdded;
     }
 
-    public Collection<MD5Details> getMd5Details() {
+    public Collection<ChecksumDetails> getMd5Details() {
         return md5Details;
     }
 
-    public void setMd5Details(Collection<MD5Details> md5Details) {
+    public void setMd5Details(Collection<ChecksumDetails> md5Details) {
         this.md5Details = md5Details;
     }
 

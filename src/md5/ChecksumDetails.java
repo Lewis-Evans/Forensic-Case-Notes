@@ -6,6 +6,7 @@
 package md5;
 
 import createcase.CaseFile;
+import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,19 +20,45 @@ import javax.persistence.Table;
  * @author Lewis
  */
 @Entity
-@Table (name = "CASE_MD5S")
-public class MD5Details {
-    
+@Table(name = "CASE_CHECKSUMS")
+public class ChecksumDetails {
+
     @Id
     @GeneratedValue
-    @Column (name="MD5_ID")
-    private int MD5ID;
+    @Column(name = "CHECKSUM_ID")
+    private int checksumID;
     private String fileName;
     private String filePath;
     private String MD5Value;
+    private String SHA1Value;
     @ManyToOne
-    @JoinColumn(name="CASE_ID")
+    @JoinColumn(name = "CASE_ID")
     private CaseFile caseFile;
+    private LocalDateTime dateTimeGenerated;
+
+    public int getChecksumID() {
+        return checksumID;
+    }
+
+    public void setChecksumID(int checksumID) {
+        this.checksumID = checksumID;
+    }
+
+    public String getSHA1Value() {
+        return SHA1Value;
+    }
+
+    public void setSHA1Value(String SHA1Value) {
+        this.SHA1Value = SHA1Value;
+    }
+
+    public LocalDateTime getDateTimeGenerated() {
+        return dateTimeGenerated;
+    }
+
+    public void setDateTimeGenerated(LocalDateTime dateTimeGenerated) {
+        this.dateTimeGenerated = dateTimeGenerated;
+    }
 
     public CaseFile getCaseFile() {
         return caseFile;
@@ -40,7 +67,6 @@ public class MD5Details {
     public void setCaseFile(CaseFile caseFile) {
         this.caseFile = caseFile;
     }
-
 
     public String getMD5Value() {
         return MD5Value;
@@ -51,11 +77,11 @@ public class MD5Details {
     }
 
     public int getMD5ID() {
-        return MD5ID;
+        return checksumID;
     }
 
     public void setMD5ID(int MD5ID) {
-        this.MD5ID = MD5ID;
+        this.checksumID = MD5ID;
     }
 
     public String getFileName() {
@@ -73,6 +99,4 @@ public class MD5Details {
     public void setFilePath(String filePath) {
         this.filePath = filePath;
     }
-    
-
 }

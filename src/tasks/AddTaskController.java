@@ -39,7 +39,7 @@ public class AddTaskController implements Initializable {
     private DatePicker startDatePicker;
 
     @FXML
-    private ChoiceBox<Integer> taskPrioChoiceBox;
+    private ChoiceBox<String> taskPrioChoiceBox;
 
     @FXML
     private Button createTaskButton;
@@ -47,33 +47,35 @@ public class AddTaskController implements Initializable {
     @FXML
     private TextArea taskDescTextArea;
 
-    
-    
     @FXML
     void handleCreateTaskButton(ActionEvent event) {
         System.out.println("Clicked on Create Task Button");
         Task newTask = new Task();
-        
+
         newTask.setTaskName(taskNameTextField.getText());
         newTask.setTaskDescription(taskDescTextArea.getText());
         newTask.setStartDate(startDatePicker.getValue());
         newTask.setEndDate(endDatePicker.getValue());
-        newTask.setPriority(taskPrioChoiceBox.getValue());
-   
+
+        if (taskPrioChoiceBox.getValue().equals("1 - High")) {
+            newTask.setPriority(1);
+        } else if (taskPrioChoiceBox.getValue().equals("2 - Medium")) {
+            newTask.setPriority(2);
+        } else if (taskPrioChoiceBox.getValue().equals("3 - Low")) {
+            newTask.setPriority(3);
+        }
+
         SessionFactory sFactory = HibernateUtilities.getSessionFactory();
-        Session session = sFactory.openSession();   
+        Session session = sFactory.openSession();
         session.beginTransaction();
-        
-        
+
         CaseFile currentCase = (CaseFile) session.get(CaseFile.class, CreateCaseController.getCaseNumber());
         currentCase.getCaseTasks().add(newTask);
         newTask.setCaseFile(currentCase);
-        
-        
+
         session.saveOrUpdate(currentCase);
         session.saveOrUpdate(newTask);
- 
-        
+
         session.getTransaction().commit();
         session.close();
         ((Node) (event.getSource())).getScene().getWindow().hide();
@@ -88,7 +90,7 @@ public class AddTaskController implements Initializable {
         // TODO
         taskPrioChoiceBox.getItems()
                 .addAll(
-                        1, 2, 3
+                        "1 - High", "2 - Medium", "3 - Low"
                 );
     }
 

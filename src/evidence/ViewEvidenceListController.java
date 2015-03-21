@@ -6,7 +6,6 @@
 package evidence;
 
 import casesummary.CaseSummaryController;
-import createcase.CaseFile;
 import createcase.CreateCaseController;
 import hibernate.HibernateUtilities;
 import java.io.IOException;
@@ -48,9 +47,13 @@ public class ViewEvidenceListController implements Initializable {
     private Button viewEditEvidenceButton;
     @FXML
     private Button addEvidenceButton;
-    @FXML private TableColumn<Evidence, Image> evidenceImageColumn;
     @FXML
-    private TableColumn<Evidence, Integer> columnEvidenceID;
+    private TableColumn<Evidence, String> columnEvidenceManufacturer;
+    @FXML
+    private TableColumn<Evidence, String> columnEvidenceModel;
+
+    @FXML
+    private TableColumn<Evidence, Long> columnEvidenceID;
     @FXML
     private TableView<Evidence> evidenceTableView;
     @FXML
@@ -60,12 +63,35 @@ public class ViewEvidenceListController implements Initializable {
     @FXML
     private Button deleteEvidenceButton;
 
-    public TableView<Evidence> getEvidenceTableView() {
-        return evidenceTableView;
-    }
+    private static long currentOpenedEvidenceID;
 
-    public void setEvidenceTableView(TableView<Evidence> evidenceTableView) {
-        this.evidenceTableView = evidenceTableView;
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        SessionFactory sFactory = HibernateUtilities.getSessionFactory();
+        Session session = sFactory.openSession();
+        session.beginTransaction();
+
+        //List<Evidence> evidenceList = session.createQuery("from Evidence ").list();
+        long currentCaseId = CreateCaseController.getCaseNumber();
+        Query query = session.createQuery("from Evidence where caseFile = " + currentCaseId);
+        System.out.println(query.toString());
+
+        List<Evidence> evidenceForCase = (List<Evidence>) query.list();
+        System.out.println(evidenceForCase);
+
+        columnEvidenceID.setCellValueFactory(new PropertyValueFactory("evidenceID"));
+        columnEvidenceType.setCellValueFactory(new PropertyValueFactory("evidenceType"));
+
+        DateTimeFormatter format = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT, FormatStyle.SHORT);
+
+        dateTimeAddedColumn.setCellValueFactory(new PropertyValueFactory("evidenceDateTimeAdded"));
+
+        evidenceTableView.getItems().addAll(evidenceForCase);
+        session.getTransaction().commit();
+        session.close();
     }
 
     @FXML
@@ -82,6 +108,31 @@ public class ViewEvidenceListController implements Initializable {
             stage.setMinWidth(720);
             stage.setMaxHeight(430);
             stage.setMaxWidth(720);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(CaseSummaryController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    void handleViewEditEvidenceButton() {
+//        setCurrentOpenedEvidenceID(Long.parseLong(evidenceIDTextField.getText()));
+
+        SessionFactory sFactory = HibernateUtilities.getSessionFactory();
+        Session session = sFactory.openSession();
+        session.beginTransaction();
+
+        Evidence openedEvidence = (Evidence) session.get(Evidence.class, Long.parseLong(evidenceIDTextField.getText()));
+        ViewEvidenceListController.setCurrentOpenedEvidence(openedEvidence);
+        ViewEvidenceListController.setCurrentOpenedEvidenceID(Integer.parseInt(evidenceIDTextField.getText()));
+
+        try {
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource("/evidence/ViewEvidence.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("View Evidence");
+            stage.getIcons().add(new Image("logobig.jpg"));
+            stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(CaseSummaryController.class.getName()).log(Level.SEVERE, null, ex);
@@ -121,51 +172,9 @@ public class ViewEvidenceListController implements Initializable {
 
         session.delete(session.get(Evidence.class, Long.parseLong(evidenceIDTextField.getText())));
 
-        evidenceTableView.setVisible(false);
-        evidenceTableView.setVisible(true);
-
         session.getTransaction().commit();
         session.close();
     }
-
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-
-        SessionFactory sFactory = HibernateUtilities.getSessionFactory();
-        Session session = sFactory.openSession();
-        session.beginTransaction();
-
-        //List<Evidence> evidenceList = session.createQuery("from Evidence ").list();
-        long currentCaseId = CreateCaseController.getCaseNumber();
-        Query query = session.createQuery("from Evidence where caseFile = " + currentCaseId);
-        System.out.println(query.toString());
-
-        List<Evidence> evidenceForCase = (List<Evidence>) query.list();
-        System.out.println(evidenceForCase);
-
-        columnEvidenceID.setCellValueFactory(new PropertyValueFactory("evidenceID"));
-        columnEvidenceType.setCellValueFactory(new PropertyValueFactory("evidenceType"));
-        
-        DateTimeFormatter format = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT, FormatStyle.SHORT);
-        
-        dateTimeAddedColumn.setCellValueFactory(new PropertyValueFactory("evidenceDateTimeAdded"));
-       
-        evidenceImageColumn.setCellValueFactory(new PropertyValueFactory("evidenceImage"));
-        
-
-        evidenceTableView.getItems().addAll(evidenceForCase);
-        session.getTransaction().commit();
-        session.close();
-    }
-
-    private static void refreshEvidenceTable() {
-
-    }
-
-    private static long currentOpenedEvidenceID;
 
     public static long getCurrentOpenedEvidenceID() {
         return currentOpenedEvidenceID;
@@ -174,7 +183,7 @@ public class ViewEvidenceListController implements Initializable {
     public static void setCurrentOpenedEvidenceID(long currentOpenedEvidenceID) {
         ViewEvidenceListController.currentOpenedEvidenceID = currentOpenedEvidenceID;
     }
-    
+
     static Evidence currentOpenedEvidence;
 
     public static Evidence getCurrentOpenedEvidence() {
@@ -185,32 +194,12 @@ public class ViewEvidenceListController implements Initializable {
         ViewEvidenceListController.currentOpenedEvidence = currentOpenedEvidence;
     }
 
+    public TableView<Evidence> getEvidenceTableView() {
+        return evidenceTableView;
+    }
 
-    
-    @FXML
-    void handleViewEditEvidenceButton() {
-//        setCurrentOpenedEvidenceID(Long.parseLong(evidenceIDTextField.getText()));
-        
-         SessionFactory sFactory = HibernateUtilities.getSessionFactory();
-        Session session = sFactory.openSession();
-        session.beginTransaction();
-        
-        Evidence openedEvidence = (Evidence) session.get(Evidence.class, Long.parseLong(evidenceIDTextField.getText()));
-        ViewEvidenceListController.setCurrentOpenedEvidence(openedEvidence);
-        ViewEvidenceListController.setCurrentOpenedEvidenceID(Integer.parseInt(evidenceIDTextField.getText()));
-        
-        
-        try {
-            Parent root;
-            root = FXMLLoader.load(getClass().getResource("/evidence/ViewEvidence.fxml"));
-            Stage stage = new Stage();
-            stage.setTitle("View Evidence");
-            stage.getIcons().add(new Image("logobig.jpg"));
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(CaseSummaryController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void setEvidenceTableView(TableView<Evidence> evidenceTableView) {
+        this.evidenceTableView = evidenceTableView;
     }
 
 }

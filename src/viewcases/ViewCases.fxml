@@ -53,7 +53,7 @@
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../evidence/evidenceIcons/arrow_refresh.png" />
+                        <Image url="@../arrow_refresh.png" />
                      </image>
                   </ImageView>
                </graphic>

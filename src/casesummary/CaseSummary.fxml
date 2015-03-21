@@ -20,6 +20,7 @@
   <rowConstraints>
     <RowConstraints maxHeight="56.0" minHeight="24.0" prefHeight="27.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="372.0" minHeight="10.0" prefHeight="371.0" vgrow="SOMETIMES" />
+      <RowConstraints />
   </rowConstraints>
    <children>
       <MenuBar fx:id="menuBar" stylesheets="@../darktheme.css" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT" GridPane.valignment="TOP">
@@ -32,19 +33,19 @@
           </Menu>
             <Menu mnemonicParsing="false" text="Evidence">
                <items>
-                  <MenuItem fx:id="addEvidenceButton" mnemonicParsing="false" onAction="#handleAddEvidenceButton" text="Add Evidence.." />
+                  <MenuItem fx:id="addEvidenceButton" mnemonicParsing="false" onAction="#handleAddEvidenceButton" text="Add Evidence" />
                   <MenuItem fx:id="viewEvidenceMenuItem" mnemonicParsing="false" onAction="#handleViewEvidenceButton" text="View Evidence" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Tasks">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#handleCreateTaskButton" text="Create New Task" />
-                  <MenuItem mnemonicParsing="false" text="View Case Tasks" />
+                  <MenuItem fx:id="caseTasksMenuItem" mnemonicParsing="false" onAction="#handleViewTasksButton" text="View Case Tasks" />
               </items>
             </Menu>
           <Menu mnemonicParsing="false" text="Utilities">
             <items>
-              <MenuItem fx:id="MD5MenuItem" mnemonicParsing="false" onAction="#handleMD5FileButton" text="MD5 a File" />
+              <MenuItem fx:id="MD5MenuItem" mnemonicParsing="false" onAction="#handleMD5FileButton" text="Checksum Generator" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
@@ -67,7 +68,7 @@
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../evidence/evidenceIcons/arrow_refresh.png" />
+                              <Image url="@../arrow_refresh.png" />
                            </image>
                         </ImageView>
                      </graphic>

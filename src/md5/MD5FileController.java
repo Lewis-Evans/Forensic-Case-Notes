@@ -83,7 +83,7 @@ public class MD5FileController implements Initializable {
             Logger.getLogger(MD5FileController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        MD5Details aMD5 = new MD5Details();
+        ChecksumDetails aMD5 = new ChecksumDetails();
         aMD5.setMD5Value(md5);
         aMD5.setFileName(file.getName());
         aMD5.setFilePath(file.getAbsolutePath());

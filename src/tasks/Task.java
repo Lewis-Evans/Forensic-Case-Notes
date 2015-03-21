@@ -24,13 +24,26 @@ import javax.persistence.Table;
 public class Task {
     
     @Id @GeneratedValue @Column (name = "TASK_ID")
-    private int taskID;
+    private long taskID;
     private String taskName;
     private String taskDescription;
     private LocalDate startDate;
     private LocalDate endDate;
     private int priority;
     private int daysRemaining;
+    private String taskStatus;
+
+    public String getTaskStatus() {
+        return taskStatus;
+    }
+
+    public void setTaskStatus(String taskStatus) {
+        this.taskStatus = taskStatus;
+    }
+    @ManyToOne
+    @JoinColumn(name = "CASE_ID")
+    private CaseFile caseFile;
+    
 
     public CaseFile getCaseFile() {
         return caseFile;
@@ -40,10 +53,6 @@ public class Task {
         this.caseFile = caseFile;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "CASE_ID")
-    private CaseFile caseFile;
-    
     public int getDaysRemaining() {
         return daysRemaining;
     }
@@ -52,11 +61,11 @@ public class Task {
         this.daysRemaining = daysRemaining;
     }
 
-    public int getTaskID() {
+    public long getTaskID() {
         return taskID;
     }
 
-    public void setTaskID(int taskID) {
+    public void setTaskID(long taskID) {
         this.taskID = taskID;
     }
 
