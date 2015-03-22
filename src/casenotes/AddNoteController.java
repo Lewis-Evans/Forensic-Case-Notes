@@ -36,39 +36,33 @@ public class AddNoteController implements Initializable {
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+    public void initialize(URL url, ResourceBundle rb) 
+    {
         
     }    
     
     @FXML 
     void handleAddNoteButton(ActionEvent event){
-        System.out.println("Clicked on Add Note Button");
-        
+        // Open a session to interact with database
         SessionFactory sFactory = HibernateUtilities.getSessionFactory();
         Session theSession = sFactory.openSession();
         theSession.beginTransaction();
-        
-        
+
         // Create a new Case Note
         CaseNote newNote = new CaseNote();
         
+        // Set the CaseNote's DateTimeCreated to the current Date/Time
         newNote.setDateTimeAdded(LocalDateTime.now());
+        // Get the text in the text area and add it to the CaseNote object
         newNote.setNotes(caseNoteTextArea.getText());
-        // Add the note to the case
-        
-       
-        newNote.setCaseFile(CreateCaseController.getNewCase());
-        //CreateCaseController.getNewCase().getCaseNotes().add(newNote);
-        
-     
-        theSession.saveOrUpdate(newNote);
-       // theSession.saveOrUpdate(CreateCaseController.getNewCase());
 
+        // Add the note to the case
+        newNote.setCaseFile(CreateCaseController.getNewCase());
+      
+        theSession.saveOrUpdate(newNote);
         theSession.getTransaction().commit();
         theSession.close();
-        
+
         ((Node) (event.getSource())).getScene().getWindow().hide();
     }
-    
 }

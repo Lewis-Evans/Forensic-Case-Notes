@@ -153,7 +153,7 @@ public class LoginGUIController implements Initializable {
             System.out.println(list1.getCaseID());
             System.out.println(list1.getCaseType());
             System.out.println(list1.getCaseNotes());
-            System.out.println(list1.getDateCaseOpened());
+            
         }
         System.out.println("--- End of List ---");
         session.close();

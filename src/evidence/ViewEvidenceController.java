@@ -175,16 +175,18 @@ public class ViewEvidenceController implements Initializable {
         
         // Get the Image
         byte[] imagebytes = currentOpenedEvidence.getEvidenceImage();
-        ByteArrayInputStream bais = new ByteArrayInputStream(imagebytes);
-        BufferedImage buffimage = null;
-        try {
-            buffimage = ImageIO.read(bais);
-        } catch (IOException ex) {
-            Logger.getLogger(ViewEvidenceController.class.getName()).log(Level.SEVERE, null, ex);
+        if (imagebytes != null) {
+            ByteArrayInputStream bais = new ByteArrayInputStream(imagebytes);
+            BufferedImage buffimage = null;
+            try {
+                buffimage = ImageIO.read(bais);
+            } catch (IOException ex) {
+                Logger.getLogger(ViewEvidenceController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            WritableImage writeableimage = new WritableImage(500, 300);
+            Image image = SwingFXUtils.toFXImage(buffimage, writeableimage);
+            evidenceImageViewer.setImage(image);
         }
-        WritableImage writeableimage = new WritableImage(500, 300);
-        Image image = SwingFXUtils.toFXImage(buffimage, writeableimage);
-        evidenceImageViewer.setImage(image);
         
 
         

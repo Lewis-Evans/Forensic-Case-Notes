@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Reverse engineered Forensic-Case-Notes 2015.03.21 21-03-05-709">
+  <ClassDiagramComponents>
+    <Class xPosition="534.0" yPosition="87.0" package="createcase" name="CaseFile" visibility="public">
+      <Constructors>
+        <Constructor name="CaseFile" visibility="public">
+          <Argument type="int" name="caseID"/>
+          <Argument type="String" name="caseType"/>
+          <Argument type="LocalDate" name="caseDateOpened"/>
+        </Constructor>
+        <Constructor name="CaseFile" visibility="public"/>
+      </Constructors>
+      <Fields>
+        <Field name="caseID" visibility="private" type="long"/>
+        <Field name="caseType" visibility="private" type="String"/>
+        <Field name="caseDateOpened" visibility="private" type="LocalDate"/>
+        <Field name="dateTimeAdded" visibility="private" type="LocalDateTime"/>
+        <Field name="caseStatus" visibility="private" type="String"/>
+        <Field name="caseNotes" visibility="private" type="Collection&lt;CaseNote&gt;"/>
+        <Field name="md5Details" visibility="private" type="Collection&lt;Checksum&gt;"/>
+        <Field name="caseEvidence" visibility="private" type="List&lt;Evidence&gt;"/>
+        <Field name="caseTasks" visibility="private" type="Collection&lt;Task&gt;"/>
+      </Fields>
+      <Methods>
+        <Method name="getCaseStatus" visibility="public" returnType="String"/>
+        <Method name="setCaseStatus" visibility="public" returnType="void">
+          <Argument type="String" name="caseStatus"/>
+        </Method>
+        <Method name="getCaseEvidence" visibility="public" returnType="List&lt;Evidence&gt;"/>
+        <Method name="getCaseTasks" visibility="public" returnType="Collection&lt;Task&gt;"/>
+        <Method name="setCaseTasks" visibility="public" returnType="void">
+          <Argument type="Collection&lt;Task&gt;" name="caseTasks"/>
+        </Method>
+        <Method name="setCaseEvidence" visibility="public" returnType="void">
+          <Argument type="List&lt;Evidence&gt;" name="caseEvidence"/>
+        </Method>
+        <Method name="getDateTimeAdded" visibility="public" returnType="LocalDateTime"/>
+        <Method name="setDateTimeAdded" visibility="public" returnType="void">
+          <Argument type="LocalDateTime" name="dateTimeAdded"/>
+        </Method>
+        <Method name="getMd5Details" visibility="public" returnType="Collection&lt;Checksum&gt;"/>
+        <Method name="setMd5Details" visibility="public" returnType="void">
+          <Argument type="Collection&lt;Checksum&gt;" name="md5Details"/>
+        </Method>
+        <Method name="getCaseDateOpened" visibility="public" returnType="LocalDate"/>
+        <Method name="setCaseDateOpened" visibility="public" returnType="void">
+          <Argument type="LocalDate" name="caseDateOpened"/>
+        </Method>
+        <Method name="getCaseNotes" visibility="public" returnType="Collection&lt;CaseNote&gt;"/>
+        <Method name="setCaseNotes" visibility="public" returnType="void">
+          <Argument type="Collection&lt;CaseNote&gt;" name="caseNotes"/>
+        </Method>
+        <Method name="getCaseID" visibility="public" returnType="long"/>
+        <Method name="setCaseID" visibility="public" returnType="void">
+          <Argument type="long" name="caseID"/>
+        </Method>
+        <Method name="getCaseType" visibility="public" returnType="String"/>
+        <Method name="setCaseType" visibility="public" returnType="void">
+          <Argument type="String" name="caseType"/>
+        </Method>
+        <Method name="getDateCaseOpened" visibility="public" returnType="LocalDate"/>
+        <Method name="setDateCaseOpened" visibility="public" returnType="void">
+          <Argument type="LocalDate" name="dateCaseOpened"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class xPosition="1006.0" yPosition="87.0" package="createcase" name="CaseNote" visibility="public">
+      <Constructors/>
+      <Fields>
+        <Field name="caseNoteID" visibility="private" type="int"/>
+        <Field name="notes" visibility="private" type="String"/>
+        <Field name="dateTimeAdded" visibility="private" type="LocalDateTime"/>
+        <Field name="caseFile" visibility="private" type="CaseFile"/>
+      </Fields>
+      <Methods>
+        <Method name="getDateTimeAdded" visibility="public" returnType="LocalDateTime"/>
+        <Method name="setDateTimeAdded" visibility="public" returnType="void">
+          <Argument type="LocalDateTime" name="dateTimeAdded"/>
+        </Method>
+        <Method name="getCaseFile" visibility="public" returnType="CaseFile"/>
+        <Method name="setCaseFile" visibility="public" returnType="void">
+          <Argument type="CaseFile" name="caseFile"/>
+        </Method>
+        <Method name="getCaseNoteID" visibility="public" returnType="int"/>
+        <Method name="setCaseNoteID" visibility="public" returnType="void">
+          <Argument type="int" name="caseNoteID"/>
+        </Method>
+        <Method name="getNotes" visibility="public" returnType="String"/>
+        <Method name="setNotes" visibility="public" returnType="void">
+          <Argument type="String" name="notes"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class xPosition="1006.0" yPosition="448.0" package="evidence" name="Evidence" visibility="public">
+      <Constructors/>
+      <Fields>
+        <Field name="evidenceID" visibility="private" type="long"/>
+        <Field name="evidenceType" visibility="private" type="String"/>
+        <Field name="evidenceManufacturer" visibility="private" type="String"/>
+        <Field name="evidenceManufacturedDate" visibility="private" type="LocalDate"/>
+        <Field name="evidenceModel" visibility="private" type="String"/>
+        <Field name="evidenceNotes" visibility="private" type="Collection&lt;EvidenceNote&gt;"/>
+        <Field name="evidenceImage" visibility="private" type="byte[]"/>
+        <Field name="evidenceDateTimeAdded" visibility="private" type="LocalDateTime"/>
+        <Field name="caseFile" visibility="private" type="CaseFile"/>
+      </Fields>
+      <Methods>
+        <Method name="getEvidenceDateTimeAdded" visibility="public" returnType="LocalDateTime"/>
+        <Method name="setEvidenceDateTimeAdded" visibility="public" returnType="void">
+          <Argument type="LocalDateTime" name="evidenceDateTimeAdded"/>
+        </Method>
+        <Method name="getEvidenceNotes" visibility="public" returnType="Collection&lt;EvidenceNote&gt;"/>
+        <Method name="setEvidenceNotes" visibility="public" returnType="void">
+          <Argument type="Collection&lt;EvidenceNote&gt;" name="evidenceNotes"/>
+        </Method>
+        <Method name="getEvidenceImage" visibility="public" returnType="byte[]"/>
+        <Method name="setEvidenceImage" visibility="public" returnType="void">
+          <Argument type="byte[]" name="evidenceImage"/>
+        </Method>
+        <Method name="evidenceTooltipFactory" visibility="public" returnType="Image"/>
+        <Method name="getCaseFile" visibility="public" returnType="CaseFile"/>
+        <Method name="setCaseFile" visibility="public" returnType="void">
+          <Argument type="CaseFile" name="caseFile"/>
+        </Method>
+        <Method name="getEvidenceID" visibility="public" returnType="long"/>
+        <Method name="setEvidenceID" visibility="public" returnType="void">
+          <Argument type="long" name="evidenceID"/>
+        </Method>
+        <Method name="getEvidenceType" visibility="public" returnType="String"/>
+        <Method name="setEvidenceType" visibility="public" returnType="void">
+          <Argument type="String" name="evidenceType"/>
+        </Method>
+        <Method name="getEvidenceManufacturer" visibility="public" returnType="String"/>
+        <Method name="setEvidenceManufacturer" visibility="public" returnType="void">
+          <Argument type="String" name="evidenceManufacturer"/>
+        </Method>
+        <Method name="getEvidenceManufacturedDate" visibility="public" returnType="LocalDate"/>
+        <Method name="setEvidenceManufacturedDate" visibility="public" returnType="void">
+          <Argument type="LocalDate" name="evidenceManufacturedDate"/>
+        </Method>
+        <Method name="getEvidenceModel" visibility="public" returnType="String"/>
+        <Method name="setEvidenceModel" visibility="public" returnType="void">
+          <Argument type="String" name="evidenceModel"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class xPosition="1509.0" yPosition="448.0" package="evidence" name="EvidenceNote" visibility="public">
+      <Constructors/>
+      <Fields>
+        <Field name="EvidenceNoteID" visibility="private" type="long"/>
+        <Field name="evidence" visibility="private" type="Evidence"/>
+        <Field name="note" visibility="private" type="String"/>
+        <Field name="dateTimeAdded" visibility="private" type="LocalDateTime"/>
+      </Fields>
+      <Methods>
+        <Method name="getDateTimeAdded" visibility="public" returnType="LocalDateTime"/>
+        <Method name="setDateTimeAdded" visibility="public" returnType="void">
+          <Argument type="LocalDateTime" name="dateTimeAdded"/>
+        </Method>
+        <Method name="getEvidenceNoteID" visibility="public" returnType="long"/>
+        <Method name="setEvidenceNoteID" visibility="public" returnType="void">
+          <Argument type="long" name="EvidenceNoteID"/>
+        </Method>
+        <Method name="getEvidence" visibility="public" returnType="Evidence"/>
+        <Method name="setEvidence" visibility="public" returnType="void">
+          <Argument type="Evidence" name="evidence"/>
+        </Method>
+        <Method name="getNote" visibility="public" returnType="String"/>
+        <Method name="setNote" visibility="public" returnType="void">
+          <Argument type="String" name="note"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class xPosition="24.0" yPosition="24.0" package="hash" name="Checksum" visibility="public">
+      <Constructors/>
+      <Fields>
+        <Field name="checksumID" visibility="private" type="int"/>
+        <Field name="fileName" visibility="private" type="String"/>
+        <Field name="filePath" visibility="private" type="String"/>
+        <Field name="MD5Value" visibility="private" type="String"/>
+        <Field name="SHA1Value" visibility="private" type="String"/>
+        <Field name="caseFile" visibility="private" type="CaseFile"/>
+        <Field name="dateTimeGenerated" visibility="private" type="LocalDateTime"/>
+      </Fields>
+      <Methods>
+        <Method name="getChecksumID" visibility="public" returnType="int"/>
+        <Method name="setChecksumID" visibility="public" returnType="void">
+          <Argument type="int" name="checksumID"/>
+        </Method>
+        <Method name="getSHA1Value" visibility="public" returnType="String"/>
+        <Method name="setSHA1Value" visibility="public" returnType="void">
+          <Argument type="String" name="SHA1Value"/>
+        </Method>
+        <Method name="getDateTimeGenerated" visibility="public" returnType="LocalDateTime"/>
+        <Method name="setDateTimeGenerated" visibility="public" returnType="void">
+          <Argument type="LocalDateTime" name="dateTimeGenerated"/>
+        </Method>
+        <Method name="getCaseFile" visibility="public" returnType="CaseFile"/>
+        <Method name="setCaseFile" visibility="public" returnType="void">
+          <Argument type="CaseFile" name="caseFile"/>
+        </Method>
+        <Method name="getMD5Value" visibility="public" returnType="String"/>
+        <Method name="setMD5Value" visibility="public" returnType="void">
+          <Argument type="String" name="MD5Value"/>
+        </Method>
+        <Method name="getMD5ID" visibility="public" returnType="int"/>
+        <Method name="setMD5ID" visibility="public" returnType="void">
+          <Argument type="int" name="MD5ID"/>
+        </Method>
+        <Method name="getFileName" visibility="public" returnType="String"/>
+        <Method name="setFileName" visibility="public" returnType="void">
+          <Argument type="String" name="fileName"/>
+        </Method>
+        <Method name="getFilePath" visibility="public" returnType="String"/>
+        <Method name="setFilePath" visibility="public" returnType="void">
+          <Argument type="String" name="filePath"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class xPosition="73.0" yPosition="572.0" package="tasks" name="Task" visibility="public">
+      <Constructors/>
+      <Fields>
+        <Field name="taskID" visibility="private" type="long"/>
+        <Field name="taskName" visibility="private" type="String"/>
+        <Field name="taskDescription" visibility="private" type="String"/>
+        <Field name="startDate" visibility="private" type="LocalDate"/>
+        <Field name="endDate" visibility="private" type="LocalDate"/>
+        <Field name="taskPriority" visibility="private" type="int"/>
+        <Field name="taskStatus" visibility="private" type="String"/>
+        <Field name="caseFile" visibility="private" type="CaseFile"/>
+      </Fields>
+      <Methods>
+        <Method name="getTaskStatus" visibility="public" returnType="String"/>
+        <Method name="setTaskStatus" visibility="public" returnType="void">
+          <Argument type="String" name="taskStatus"/>
+        </Method>
+        <Method name="getCaseFile" visibility="public" returnType="CaseFile"/>
+        <Method name="setCaseFile" visibility="public" returnType="void">
+          <Argument type="CaseFile" name="caseFile"/>
+        </Method>
+        <Method name="getTaskID" visibility="public" returnType="long"/>
+        <Method name="setTaskID" visibility="public" returnType="void">
+          <Argument type="long" name="taskID"/>
+        </Method>
+        <Method name="getTaskName" visibility="public" returnType="String"/>
+        <Method name="setTaskName" visibility="public" returnType="void">
+          <Argument type="String" name="taskName"/>
+        </Method>
+        <Method name="getTaskDescription" visibility="public" returnType="String"/>
+        <Method name="setTaskDescription" visibility="public" returnType="void">
+          <Argument type="String" name="taskDescription"/>
+        </Method>
+        <Method name="getStartDate" visibility="public" returnType="LocalDate"/>
+        <Method name="setStartDate" visibility="public" returnType="void">
+          <Argument type="LocalDate" name="startDate"/>
+        </Method>
+        <Method name="getEndDate" visibility="public" returnType="LocalDate"/>
+        <Method name="setEndDate" visibility="public" returnType="void">
+          <Argument type="LocalDate" name="endDate"/>
+        </Method>
+        <Method name="getPriority" visibility="public" returnType="int"/>
+        <Method name="setPriority" visibility="public" returnType="void">
+          <Argument type="int" name="priority"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="CaseNote" target="CaseFile" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="CaseFile" target="CaseNote" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="evidence" source="EvidenceNote" target="Evidence" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="caseFile" source="CaseNote" target="CaseFile" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Checksum" target="CaseFile" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="CaseFile" target="Checksum" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="CaseFile" target="Task" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Evidence" target="CaseFile" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="caseFile" source="Checksum" target="CaseFile" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="CaseFile" target="Evidence" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Evidence" target="EvidenceNote" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="caseNotes" source="CaseFile" target="CaseNote" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="EvidenceNote" target="Evidence" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="caseFile" source="Task" target="CaseFile" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="caseFile" source="Evidence" target="CaseFile" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="md5Details" source="CaseFile" target="Checksum" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="caseEvidence" source="CaseFile" target="Evidence" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List"/>
+    <UseRelation source="Task" target="CaseFile" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="caseTasks" source="CaseFile" target="Task" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="evidenceNotes" source="Evidence" target="EvidenceNote" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

@@ -48,8 +48,6 @@ public class CreateCaseController implements Initializable {
     @FXML
     private TextField caseIDTextField;
     @FXML
-    private DatePicker dateCaseOpenedDatePicker;
-    @FXML
     private Button cancelButton;
     @FXML
     private Button addCaseButton;
@@ -104,7 +102,6 @@ public class CreateCaseController implements Initializable {
         newCase.setCaseID(caseNumber);
 
         newCase.setCaseType(caseTypeChoiceBox.getValue().toString());
-        newCase.setDateCaseOpened(LocalDate.now());
         newCase.setCaseStatus("Active");
 
         // Set Date and Time the Case was Created (Current Date/Time)

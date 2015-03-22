@@ -20,7 +20,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import hash.ChecksumDetails;
+import hash.Checksum;
 import tasks.Task;
 
 /**
@@ -35,7 +35,6 @@ public class CaseFile implements Serializable {
     @Column(name = "CASE_ID")
     private long caseID;
     private String caseType;
-    private LocalDate caseDateOpened;
     private LocalDateTime dateTimeAdded;
     private String caseStatus;
 
@@ -43,7 +42,7 @@ public class CaseFile implements Serializable {
     private Collection<CaseNote> caseNotes = new ArrayList<>();
 
     @OneToMany(mappedBy = "caseFile", cascade = CascadeType.ALL)
-    private Collection<ChecksumDetails> md5Details = new ArrayList<>();
+    private Collection<Checksum> md5Details = new ArrayList<>();
 
     @OneToMany(mappedBy = "caseFile", cascade = CascadeType.ALL)
     private List<Evidence> caseEvidence = new ArrayList<>();
@@ -85,31 +84,24 @@ public class CaseFile implements Serializable {
         this.dateTimeAdded = dateTimeAdded;
     }
 
-    public Collection<ChecksumDetails> getMd5Details() {
+    public Collection<Checksum> getMd5Details() {
         return md5Details;
     }
 
-    public void setMd5Details(Collection<ChecksumDetails> md5Details) {
+    public void setMd5Details(Collection<Checksum> md5Details) {
         this.md5Details = md5Details;
     }
 
     public CaseFile(int caseID, String caseType, LocalDate caseDateOpened) {
         this.caseID = caseID;
         this.caseType = caseType;
-        this.caseDateOpened = caseDateOpened;
     }
 
     public CaseFile() {
         
     }
 
-    public LocalDate getCaseDateOpened() {
-        return caseDateOpened;
-    }
 
-    public void setCaseDateOpened(LocalDate caseDateOpened) {
-        this.caseDateOpened = caseDateOpened;
-    }
 
     public Collection<CaseNote> getCaseNotes() {
         return caseNotes;
@@ -135,12 +127,5 @@ public class CaseFile implements Serializable {
         this.caseType = caseType;
     }
 
-    public LocalDate getDateCaseOpened() {
-        return caseDateOpened;
-    }
-
-    public void setDateCaseOpened(LocalDate dateCaseOpened) {
-        this.caseDateOpened = dateCaseOpened;
-    }
 
 }

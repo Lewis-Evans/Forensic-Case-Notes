@@ -21,7 +21,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "CASE_CHECKSUMS")
-public class ChecksumDetails {
+public class Checksum {
 
     @Id
     @GeneratedValue

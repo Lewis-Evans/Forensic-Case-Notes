@@ -53,25 +53,25 @@ public class HashFilesController implements Initializable {
     private TextField searchField;
 
     @FXML
-    private TableView<ChecksumDetails> checksumTableView;
+    private TableView<Checksum> checksumTableView;
 
     @FXML
-    private TableColumn<ChecksumDetails, String> md5Column;
+    private TableColumn<Checksum, String> md5Column;
 
     @FXML
-    private TableColumn<ChecksumDetails, String> filePathColumn;
+    private TableColumn<Checksum, String> filePathColumn;
 
     @FXML
-    private TableColumn<ChecksumDetails, String> shaColumn;
+    private TableColumn<Checksum, String> shaColumn;
 
     @FXML
-    private TableColumn<ChecksumDetails, Integer> checksumIDColumn;
+    private TableColumn<Checksum, Integer> checksumIDColumn;
 
     @FXML
-    private TableColumn<ChecksumDetails, String> fileNameColumn;
+    private TableColumn<Checksum, String> fileNameColumn;
 
     @FXML
-    private TableColumn<ChecksumDetails, LocalDateTime> dateTimeGeneratedColumn;
+    private TableColumn<Checksum, LocalDateTime> dateTimeGeneratedColumn;
 
     @FXML
     Button browseForFileButton;
@@ -90,7 +90,7 @@ public class HashFilesController implements Initializable {
         session.beginTransaction();
 
         Query query = session.createQuery("from ChecksumDetails where caseFile = " + CreateCaseController.getCaseNumber());
-        List<ChecksumDetails> checksumsForCase = (List<ChecksumDetails>) query.list();
+        List<Checksum> checksumsForCase = (List<Checksum>) query.list();
 
         checksumIDColumn.setCellValueFactory(new PropertyValueFactory("checksumID"));
         fileNameColumn.setCellValueFactory(new PropertyValueFactory("fileName"));
@@ -99,7 +99,7 @@ public class HashFilesController implements Initializable {
 
         DateTimeFormatter format = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT, FormatStyle.SHORT);
         dateTimeGeneratedColumn.setCellFactory(column -> {
-            return new TableCell<ChecksumDetails, LocalDateTime>() {
+            return new TableCell<Checksum, LocalDateTime>() {
                 @Override
                 protected void updateItem(LocalDateTime item, boolean empty) {
                     super.updateItem(item, empty);
@@ -146,7 +146,7 @@ public class HashFilesController implements Initializable {
         checksumTableView.getItems().clear();
 
         Query query = session.createQuery("FROM ChecksumDetails E WHERE E.id = " + searchField.getText());
-        List<ChecksumDetails> checksumsForCase = (List<ChecksumDetails>) query.list();
+        List<Checksum> checksumsForCase = (List<Checksum>) query.list();
 
         checksumTableView.getItems().addAll(checksumsForCase);
 
@@ -173,7 +173,7 @@ public class HashFilesController implements Initializable {
             Logger.getLogger(HashFilesController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        ChecksumDetails aChecksum = new ChecksumDetails();
+        Checksum aChecksum = new Checksum();
         aChecksum.setMD5Value(md5);
         aChecksum.setSHA1Value(sha1);
         aChecksum.setFileName(file.getName());
@@ -215,7 +215,7 @@ public class HashFilesController implements Initializable {
         checksumTableView.getItems().clear();
 
         Query query = session.createQuery("from ChecksumDetails where caseFile = " + CreateCaseController.getCaseNumber());
-        List<ChecksumDetails> checksumsForCase = (List<ChecksumDetails>) query.list();
+        List<Checksum> checksumsForCase = (List<Checksum>) query.list();
 
         checksumTableView.getItems().addAll(checksumsForCase);
 

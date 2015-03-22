@@ -10,7 +10,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="213.0" prefWidth="432.0" stylesheets="@../darktheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="createcase.CreateCaseController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="213.0" prefWidth="432.0" 
+          stylesheets="@../darktheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="createcase.CreateCaseController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="10.0" prefWidth="38.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="327.0" minWidth="10.0" prefWidth="186.0" />

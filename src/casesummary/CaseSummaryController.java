@@ -63,8 +63,6 @@ public class CaseSummaryController {
     @FXML
     private MenuBar menuBar;
     @FXML
-    private MenuItem saveButton;
-    @FXML 
     private MenuItem caseTasksMenuItem;
     @FXML
     private MenuItem MD5MenuItem;
@@ -88,6 +86,8 @@ public class CaseSummaryController {
     private TextArea caseNotesTextArea;
     @FXML
     private Button refreshButton;
+    @FXML
+    private TableView<CaseFile> table;
 
     @FXML
     void handleCloseButton(ActionEvent event) {
@@ -131,29 +131,6 @@ public class CaseSummaryController {
 
     }
 
-    @FXML
-    void handleSaveButton(ActionEvent event) {
-        System.out.println("Clicked on Save Button");
-
-    }
-
-    @FXML
-    private TableView<CaseFile> table;
-
-    @FXML
-    void handleTestButton(ActionEvent event) {
-        SessionFactory sFactory = hibernate.HibernateUtilities.getSessionFactory();
-        Session theSession = sFactory.openSession();
-        theSession.beginTransaction();
-        System.out.println("Getting the Current Case Details..");
-        //CaseDetails testCase = new CaseDetails();
-        CaseFile testCase = (CaseFile) theSession.get(CaseFile.class, CreateCaseController.getCaseNumber());
-        System.out.println("Case ID: " + testCase.getCaseID());
-        System.out.println("Case Type: " + testCase.getCaseType());
-        System.out.println("Case notes: " + testCase.getCaseNotes());
-        System.out.println("Case date: " + testCase.getDateCaseOpened().toString());
-        theSession.close();
-    }
 
     @FXML
     void handleAboutButton(ActionEvent event) {
@@ -192,7 +169,7 @@ public class CaseSummaryController {
     }
 
     @FXML
-    void handleViewTasksButton(ActionEvent event){
+    void handleViewTasksButton(ActionEvent event) {
         try {
             System.out.println("Clicked on View Tasks Button");
             Parent root;
@@ -206,6 +183,7 @@ public class CaseSummaryController {
             Logger.getLogger(CaseSummaryController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     /**
      * Initializes the controller class.
      */
@@ -266,8 +244,6 @@ public class CaseSummaryController {
             }
         }
     }
-    
-  
 
     @FXML
     private void handleViewEvidenceButton(ActionEvent event) {
