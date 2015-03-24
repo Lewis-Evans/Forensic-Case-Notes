@@ -25,11 +25,17 @@ public class Task {
     
     @Id @GeneratedValue @Column (name = "TASK_ID")
     private long taskID;
+    @Column (name = "TASK_NAME")
     private String taskName;
+    @Column (name = "TASK_DESCRIPTION")
     private String taskDescription;
+    @Column (name = "TASK_START_DATE")
     private LocalDate startDate;
+    @Column (name = "TASK_END_DATE")
     private LocalDate endDate;
+    @Column (name = "TASK_PRIORITY")
     private int taskPriority;
+    @Column (name = "TASK_STATUS")
     private String taskStatus;
 
     public String getTaskStatus() {

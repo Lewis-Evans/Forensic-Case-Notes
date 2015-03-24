@@ -62,9 +62,6 @@ public class HashFilesController implements Initializable {
     private TableColumn<Checksum, String> filePathColumn;
 
     @FXML
-    private TableColumn<Checksum, String> shaColumn;
-
-    @FXML
     private TableColumn<Checksum, Integer> checksumIDColumn;
 
     @FXML
@@ -89,7 +86,7 @@ public class HashFilesController implements Initializable {
         Session session = sFactory.openSession();
         session.beginTransaction();
 
-        Query query = session.createQuery("from ChecksumDetails where caseFile = " + CreateCaseController.getCaseNumber());
+        Query query = session.createQuery("from Checksum where caseFile = " + CreateCaseController.getCaseNumber());
         List<Checksum> checksumsForCase = (List<Checksum>) query.list();
 
         checksumIDColumn.setCellValueFactory(new PropertyValueFactory("checksumID"));
@@ -116,7 +113,7 @@ public class HashFilesController implements Initializable {
         });
 
         md5Column.setCellValueFactory(new PropertyValueFactory("MD5Value"));
-        shaColumn.setCellValueFactory(new PropertyValueFactory("SHA1Value"));
+      
 
         checksumTableView.getItems().addAll(checksumsForCase);
         session.getTransaction().commit();
@@ -157,25 +154,23 @@ public class HashFilesController implements Initializable {
     private void generateChecksums(File file) {
 
         FileInputStream md5fis;
-        FileInputStream sha1fis;
+    
         String md5 = "";
-        String sha1 = "";
+
         try {
             md5fis = new FileInputStream(file);
-            sha1fis = new FileInputStream(file);
 
             md5 = DigestUtils.md5Hex(md5fis);
-            sha1 = DigestUtils.sha1Hex(sha1fis);
 
             md5fis.close();
-            sha1fis.close();
+
         } catch (IOException ex) {
             Logger.getLogger(HashFilesController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         Checksum aChecksum = new Checksum();
         aChecksum.setMD5Value(md5);
-        aChecksum.setSHA1Value(sha1);
+        ;
         aChecksum.setFileName(file.getName());
         aChecksum.setFilePath(file.getPath());
 

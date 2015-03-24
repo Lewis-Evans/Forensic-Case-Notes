@@ -34,16 +34,6 @@
                         <Insets left="40.0" />
                      </HBox.margin>
                   </Button>
-                  <TextField fx:id="searchField" promptText="Search for File Name">
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
-                  </TextField>
-                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#handleSearchButton" text="Search">
-                     <HBox.margin>
-                        <Insets left="5.0" />
-                     </HBox.margin>
-                  </Button>
                </children>
                <VBox.margin>
                   <Insets bottom="5.0" />
@@ -53,10 +43,9 @@
               <columns>
                 <TableColumn fx:id="checksumIDColumn" prefWidth="57.0" text="Hash ID" />
                 <TableColumn fx:id="fileNameColumn" prefWidth="138.0" text="File Name" />
-                  <TableColumn fx:id="filePathColumn" prefWidth="156.0" text="File Path" />
-                  <TableColumn fx:id="dateTimeGeneratedColumn" prefWidth="141.0" text="Date / Time Generated" />
-                  <TableColumn fx:id="md5Column" prefWidth="201.0" text="MD5 Checksum" />
-                  <TableColumn fx:id="shaColumn" maxWidth="1.7976931348623157E308" prefWidth="231.0" text="SHA1 Checksum" />
+                  <TableColumn fx:id="filePathColumn" prefWidth="212.0" text="File Path" />
+                  <TableColumn fx:id="dateTimeGeneratedColumn" prefWidth="214.0" text="Date / Time Generated" />
+                  <TableColumn fx:id="md5Column" prefWidth="272.0" text="MD5 Checksum" />
               </columns>
             </TableView>
          </children>

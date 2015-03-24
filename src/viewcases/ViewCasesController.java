@@ -26,6 +26,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -153,6 +154,21 @@ public class ViewCasesController implements Initializable {
         DateTimeFormatter format = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT, FormatStyle.SHORT);
          
         column3DateTimeAdded.setCellValueFactory(new PropertyValueFactory("dateTimeAdded"));
+        column3DateTimeAdded.setCellFactory(column -> {
+            return new TableCell<CaseFile, LocalDateTime>() {
+                @Override
+                protected void updateItem(LocalDateTime item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    if (item == null || empty) {
+                        setText(null);
+                        setStyle("");
+                    } else {
+                        setText(format.format(item));
+                    }
+                }
+            };
+        });
         
         column4CaseStatus.setCellValueFactory(new PropertyValueFactory("caseStatus"));
         

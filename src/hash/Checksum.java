@@ -27,13 +27,16 @@ public class Checksum {
     @GeneratedValue
     @Column(name = "CHECKSUM_ID")
     private int checksumID;
+    @Column(name = "FILE_NAME")
     private String fileName;
+    @Column(name = "FILE_PATH")
     private String filePath;
+    @Column(name = "MD5_VALUE")
     private String MD5Value;
-    private String SHA1Value;
     @ManyToOne
     @JoinColumn(name = "CASE_ID")
     private CaseFile caseFile;
+    @Column(name = "DATETIME_GENERATED")
     private LocalDateTime dateTimeGenerated;
 
     public int getChecksumID() {
@@ -44,13 +47,7 @@ public class Checksum {
         this.checksumID = checksumID;
     }
 
-    public String getSHA1Value() {
-        return SHA1Value;
-    }
 
-    public void setSHA1Value(String SHA1Value) {
-        this.SHA1Value = SHA1Value;
-    }
 
     public LocalDateTime getDateTimeGenerated() {
         return dateTimeGenerated;

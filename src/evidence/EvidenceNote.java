@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -24,11 +25,12 @@ public class EvidenceNote {
     
     @Id @GeneratedValue @Column (name = "EVIDENCE_NOTE_ID")
     private long EvidenceNoteID;
+    @Lob
+    @Column (name = "EVIDENCE_NOTE")
+    private String note;
     @ManyToOne
     @JoinColumn(name="EVIDENCE_ID")
     private Evidence evidence;
-    private String note;
-   
     private LocalDateTime dateTimeAdded;
 
     public LocalDateTime getDateTimeAdded() {

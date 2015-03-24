@@ -131,7 +131,6 @@ public class CaseSummaryController {
 
     }
 
-
     @FXML
     void handleAboutButton(ActionEvent event) {
         try {

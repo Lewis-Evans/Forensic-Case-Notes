@@ -159,7 +159,7 @@ public class CreateCaseController implements Initializable {
 //        dateCaseOpenedDatePicker.setValue(LocalDate.now());
         caseTypeChoiceBox.getItems().addAll(
                 "Child Exploitation", "Cyber Extortion", "Cyber Stalking", "Cyber Terrorism",
-                "Fraud", "Hacking", "Identity Theft", "Malicious Software", "Theft", "Other"
+                "Fraud", "Hacking", "Identity Theft", "Malicious Software", "Network Attack","Theft", "Other"
         );
 
     }
