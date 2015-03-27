@@ -8,9 +8,7 @@ Hibernate JAR Files (http://hibernate.org/orm/downloads/)<br />
 PostgreSQL JDBC Database Driver (https://jdbc.postgresql.org/download.html)<br />
 Apache Commons IO 2.4 (http://commons.apache.org/proper/commons-io/download_io.cgi)
 <br /><br />
-Hibernate Config File<br />
-Ensure the Hibernate configuration file has the correct database name specified within the correct tags:<br />
-     <property name="connection.url">jdbc:postgresql://localhost:5432/case_cadet</property>
 
 
-Hibernate Configurations
+
+<b>Hibernate Configurations</b>
