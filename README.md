@@ -1,7 +1,7 @@
 # Forensic-Case-Notes
 
 ------- Prerequisites -------
--- JAR FILES
+JAR FILES
 Hibernate JAR Files (http://hibernate.org/orm/downloads/)
 
 -- Java Version
