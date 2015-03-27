@@ -141,9 +141,7 @@ public class LoginGUIController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        // provide the correct details to get into app quicker - testing purposes 
-        usernameTextField.setText("Lewis");
-        passwordPasswordField.setText("CaseCadet");
+      
 
         SessionFactory sFactory = HibernateUtilities.getSessionFactory();
         Session session = sFactory.openSession();
