@@ -1,6 +1,6 @@
 # Forensic-Case-Notes
 
-Prerequisites <br /><br />
+<b>Prerequisites </b><br /><br />
 Java Version - The latest version of the JDK will be required (http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)<br /><br />
 <b>JAR FILES</b><br />
 The following JAR files should be added to the Case Cadet project build path.<br />
