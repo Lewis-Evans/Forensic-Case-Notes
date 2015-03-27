@@ -112,8 +112,6 @@ public class AddEvidenceController {
 
         theEvidence.setCaseFile(CreateCaseController.getNewCase());
 
-//        newCase.getCaseNotes().add(initialNotes);
-//        initialNotes.setCaseFile(newCase);
         // Set the Evidence Image 
         theEvidence.setEvidenceImage(byteFile);
 

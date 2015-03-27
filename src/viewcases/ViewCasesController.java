@@ -73,7 +73,7 @@ public class ViewCasesController implements Initializable {
             stage.setTitle("Case Creation Screen");
             //stage.getIcons().add(new Image("/cssthemes/logobig.jpg"));
             stage.getIcons().add(new Image("LogoLetters.png"));
-            stage.setScene(new Scene(root, 450, 450));
+            stage.setScene(new Scene(root));
             stage.show();
             stage.setOnCloseRequest((WindowEvent t) -> {
                 System.out.println("CLOSING");
@@ -125,7 +125,7 @@ public class ViewCasesController implements Initializable {
             stage.setTitle("Case Summary Screen - " + "[CaseID: " + openedCase.getCaseID() + "]  " + "[Case Type: " + openedCase.getCaseType() + "]");
         
             stage.getIcons().add(new Image("LogoLetters.png"));
-            stage.setScene(new Scene(root, 850, 600));
+            stage.setScene(new Scene(root));
             stage.show();
             stage.setOnCloseRequest((WindowEvent t) -> {
 

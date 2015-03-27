@@ -10,21 +10,19 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="213.0" prefWidth="432.0" 
-          stylesheets="@../darktheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="createcase.CreateCaseController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="176.0" 
+          prefWidth="501.0" stylesheets="@../darktheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
+          fx:controller="createcase.CreateCaseController">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="10.0" prefWidth="38.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="327.0" minWidth="10.0" prefWidth="186.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="327.0" minWidth="10.0" prefWidth="166.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="144.0" minWidth="10.0" prefWidth="42.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="327.0" minWidth="10.0" prefWidth="188.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="327.0" minWidth="10.0" prefWidth="216.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="129.0" minHeight="4.0" prefHeight="43.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="305.0" minHeight="10.0" prefHeight="142.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="173.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="305.0" minHeight="10.0" prefHeight="134.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="173.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <VBox prefHeight="269.0" prefWidth="188.0" spacing="22.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <VBox prefHeight="269.0" prefWidth="188.0" spacing="22.0">
          <padding>
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </padding>
@@ -44,17 +42,17 @@
                </font></Label>
          </children>
       </VBox>
-      <VBox prefHeight="200.0" prefWidth="100.0" spacing="12.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="12.0" GridPane.columnIndex="1">
          <children>
-            <TextField fx:id="caseDateTimeCaseCreated" editable="false" focusTraversable="false" />
-            <TextField fx:id="caseIDTextField" />
+            <TextField fx:id="caseDateTimeCaseCreated" editable="false" />
+            <TextField fx:id="caseIDTextField" promptText="Enter Numerical Case ID" />
             <ChoiceBox fx:id="caseTypeChoiceBox" prefWidth="150.0" />
          </children>
          <padding>
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </padding>
       </VBox>
-      <Button fx:id="addCaseButton" mnemonicParsing="false" onAction="#handleAddCaseButton" text="Add Case" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+      <Button fx:id="addCaseButton" mnemonicParsing="false" onAction="#handleAddCaseButton" text="Add Case" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>

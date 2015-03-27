@@ -16,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -40,10 +41,12 @@ public class LoginGUIController implements Initializable {
     @FXML
     private Button loginButton;
     @FXML
+    private Label loginLabel;
+    @FXML
     private TextField usernameTextField;
 
     private String appUserName = "Lewis";
-    private String appPassword = "lol";
+    private String appPassword = "CaseCadet";
 
     private CaseFile cas;
 
@@ -60,8 +63,10 @@ public class LoginGUIController implements Initializable {
      * @throws HibernateException
      */
     private void authenticateUser(ActionEvent event) throws HibernateException {
+    
         if (usernameTextField.getText().equals(appUserName)) {
             System.out.println("Username Correct");
+            
             if (passwordPasswordField.getText().equals(appPassword)) {
                 try {
 
@@ -85,16 +90,14 @@ public class LoginGUIController implements Initializable {
                     }
                     //hide this current window
                     ((Node) (event.getSource())).getScene().getWindow().hide();
-
-//                stage.setTitle("Login to CaseCadet");
-//                stage.setScene(scene);
-//                stage.show();
                 } catch (IOException ex) {
                     Logger.getLogger(LoginGUIController.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                loginLabel.setVisible(true);
             }
+            loginLabel.setVisible(true);
         } else {
-            System.out.println("Credentials Incorrect");
+            loginLabel.setVisible(true);
         }
     }
 
@@ -140,7 +143,7 @@ public class LoginGUIController implements Initializable {
 
         // provide the correct details to get into app quicker - testing purposes 
         usernameTextField.setText("Lewis");
-        passwordPasswordField.setText("lol");
+        passwordPasswordField.setText("CaseCadet");
 
         SessionFactory sFactory = HibernateUtilities.getSessionFactory();
         Session session = sFactory.openSession();
@@ -153,7 +156,7 @@ public class LoginGUIController implements Initializable {
             System.out.println(list1.getCaseID());
             System.out.println(list1.getCaseType());
             System.out.println(list1.getCaseNotes());
-            
+
         }
         System.out.println("--- End of List ---");
         session.close();

@@ -35,7 +35,7 @@
             <Insets top="15.0" />
          </GridPane.margin>
       </VBox>
-      <ImageView fx:id="evidenceImageViewer" fitHeight="350.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+      <ImageView fx:id="evidenceImageViewer" fitHeight="350.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowSpan="2147483647" GridPane.valignment="CENTER">
          <image>
             <Image url="@../placeholder.png" />
          </image>
@@ -63,7 +63,7 @@
                   <Button fx:id="printNotesButton" mnemonicParsing="false" onAction="#handlePrintNotesButton" prefHeight="26.0" prefWidth="97.0" text="Print Notes" />
                </children>
             </HBox>
-            <TextArea fx:id="evidenceNoteTextArea" editable="false" prefHeight="294.0" prefWidth="418.0">
+            <TextArea fx:id="evidenceNoteTextArea" editable="false" prefHeight="294.0" prefWidth="418.0" wrapText="true">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin></TextArea>
